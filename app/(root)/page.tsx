@@ -5,6 +5,7 @@ export default function Home() {
     <>
       <p>Hello Brammie</p>
       <Button variant="outline">Button</Button>
+      <Button variant="destructive">Button 2</Button>
     </>
   )
 }
