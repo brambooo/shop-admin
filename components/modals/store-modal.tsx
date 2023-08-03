@@ -12,6 +12,7 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { redirect } from "next/navigation";
 
 const formSchema = zod.object({
     name: zod.string().min(1)
@@ -30,9 +31,9 @@ export const StoreModal = () => {
     const onSubmit = async (values: zod.infer<typeof formSchema>) => {
         try {
             setLoading(true);
+            // Make sure we make a page refresh!
             const response = await axios.post('/api/stores', values);
-            toast.success(' Store created!')
-
+            window.location.assign(`/${response.data.id}`);
         } catch (error) {
             toast.error(' Something went wrong!')
         } finally {
