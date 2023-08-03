@@ -2,6 +2,7 @@ import prismadb from "@/lib/primadb";
 import { UserButton, auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { MainNav } from "./main-nav";
+import StoreSwitcher from "./store-switcher";
 
 const Navbar = async () => {
     const { userId } = auth();
@@ -19,8 +20,7 @@ const Navbar = async () => {
     return (
         <div className="border-b">
             <div className="flex h-16 items-center px-4">
-                Store switcher
-                {/* <StoreSwitcher items={stores} /> */}
+                <StoreSwitcher items={stores} />
                 <MainNav className="mx-6" />
                 <div className="ml-auto flex items-center space-x-4">
                     {/* <ThemeToggle /> */}
