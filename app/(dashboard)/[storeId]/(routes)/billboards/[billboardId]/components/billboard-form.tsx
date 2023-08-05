@@ -39,6 +39,7 @@ interface BillboardFormProps {
 export const BillboardForm: React.FC<BillboardFormProps> = ({
     initialData
 }) => {
+    console.log(initialData)
     const params = useParams();
     const router = useRouter();
 
